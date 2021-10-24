@@ -33,7 +33,11 @@ namespace TodoApi
             // add db context
             services.AddDbContext<ApplicationDbContext>(opt =>
             {
+<<<<<<< HEAD
                 opt.UseSqlServer(Configuration.GetConnectionString("SqlConnection"));
+=======
+                opt.UseSqlServer(Configuration["SqlConnection"]);
+>>>>>>> 182e80e4d2bdb1804378635bfc3bfcf7195408d7
             });
 
             services.AddControllers();
