@@ -1,0 +1,18 @@
+<div nz-row [nzGutter]="15">
+    <div nz-col>
+        <form nz-form [nzLayout]="'inline'" #todoForm="ngForm" (ngSubmit)="addTodo(todoForm)">
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input the title!">
+                <nz-input-group >
+                  <input name="title" id="title" required ngModel nz-input placeholder="Todo.." />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control [nzOffset]="7" [nzSpan]="12">
+                <button nz-button nzType="primary" [disabled]="!todoForm.valid">ADD</button>
+              </nz-form-control>
+            </nz-form-item>
+        </form>
+    </div>
+    </div>

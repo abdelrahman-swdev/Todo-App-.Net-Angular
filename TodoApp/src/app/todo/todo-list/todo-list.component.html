@@ -1,0 +1,36 @@
+<nz-layout>
+    <nz-content>
+        <div class="inner-content">
+            <div nz-row>
+                <div nz-col nzSpan="14" nzOffset="5">
+                    <h1>Todo List</h1>
+                    <app-todo-form (itemAdded)="refresh()" ></app-todo-form>
+                    <nz-list nzItemLayout="horizontal">
+                        <nz-list-item *ngFor="let todo of todos">
+                            <ng-container>
+                                <nz-tag [nzColor]="'cyan'">{{todo.title}}</nz-tag>
+                                <ul nz-list-item-actions>
+                                    <nz-list-item-action>
+                                        <nz-switch [(ngModel)]="todo.completed"
+                                        (click)="updateTodo(todo)"
+                                        nz-tooltip nzTooltipTitle=""></nz-switch>
+                                    </nz-list-item-action>
+                                    <nz-list-item-action>
+                                        <button nz-button
+                                         nzType="primary"
+                                         nzDanger
+                                         nz-popconfirm
+                                         nzPopconfirmTitle="Delete this ?"
+                                         nzPopconfirmPlacement="top"
+                                         (nzOnConfirm)=deleteTodo(todo.id)
+                                         (nzOnCancel)=cancel()>X</button>
+                                    </nz-list-item-action>
+                                </ul>
+                            </ng-container>
+                        </nz-list-item>
+                    </nz-list>
+                </div>
+            </div>
+        </div>
+    </nz-content>
+</nz-layout>
